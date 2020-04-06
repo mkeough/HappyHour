@@ -1,0 +1,79 @@
+/* Provide sufficient contrast against white background */
+
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+:root {
+  --banner-top-gradient: rgba(128, 199, 247, 0.75);
+  --banner-bottom-gradient: rgba(25, 38, 114, 0.75);
+}
+
+main.home-page {
+  background-image: url(./images/HomePage.jpg);
+  height: 100vh;
+  width: 92vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+section.banner {
+  background: linear-gradient(
+    var(--banner-top-gradient),
+    var(--banner-bottom-gradient)
+  );
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: white;
+}
+button.home-button {
+  margin-top: 2rem;
+  height: 3rem;
+  width: 6rem;
+  font-size: 18px;
+  font-weight: bolder;
+}
+.container {
+  margin: 0;
+}
+main {
+  margin: 0;
+}
+.search-page {
+  text-align: center;
+  padding: 2rem;
+}
+.search-header {
+  margin-bottom: 3rem;
+}
+.search-page h3 {
+  font-size: 24px;
+}
+.search-page p {
+  font-size: 18px;
+  font-weight: bolder;
+}
+.search-page button {
+  margin-top: 2rem;
+}
+@media (min-width: 600px) {
+  main.home-page {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+  }
+}
