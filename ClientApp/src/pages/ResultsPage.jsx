@@ -3,7 +3,7 @@ import React from 'react'
 const ResultsPage = () => {
   return (
     <div>
-      <p>results here</p>
+      <p>Bar</p>
     </div>
   )
 }

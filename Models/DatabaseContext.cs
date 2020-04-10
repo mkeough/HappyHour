@@ -8,7 +8,7 @@ namespace HappyHour.Models
   public partial class DatabaseContext : DbContext
   {
 
-
+    public DbSet<Bar> Bars { get; set; }
 
 
     private string ConvertPostConnectionToConnectionString(string connection)
