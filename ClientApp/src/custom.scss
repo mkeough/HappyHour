@@ -68,6 +68,12 @@ main {
 .search-page button {
   margin-top: 2rem;
 }
+.bar-address {
+  display: flex;
+}
+.bar-address p {
+  padding: 0.25rem;
+}
 @media (min-width: 600px) {
   main.home-page {
     -webkit-background-size: cover;

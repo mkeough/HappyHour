@@ -6,7 +6,7 @@ import HelloWorld from './pages/_template/HelloWorld'
 import HeyWorld from './pages/_template/HeyWorld'
 import NotFound from './pages/NotFound'
 import Search from './pages/Search'
-import ResultsPage from './pages/ResultsPage'
+import BarDetails from './pages/BarDetails'
 import AddPage from './pages/AddPage'
 import './custom.scss'
 export default class App extends Component {
@@ -19,7 +19,7 @@ export default class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/addpage" component={AddPage} />
-          <Route exact path="/resultspage" component={ResultsPage} />
+          <Route exact path="/bar/:barid" component={BarDetails} />
           <Route exact path="*" component={NotFound} />
         </Switch>
       </Layout>
