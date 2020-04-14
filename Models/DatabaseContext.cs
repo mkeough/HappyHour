@@ -9,6 +9,7 @@ namespace HappyHour.Models
   {
 
     public DbSet<Bar> Bars { get; set; }
+    public DbSet<User> Users { get; set; }
 
 
     private string ConvertPostConnectionToConnectionString(string connection)

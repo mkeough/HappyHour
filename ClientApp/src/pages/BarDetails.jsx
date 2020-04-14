@@ -37,6 +37,10 @@ const BarDetails = props => {
             <p>{bar.specials}</p>
           </section>
         </section>
+        <section>
+          <h4>Need to update something</h4>
+          <button>click here</button>
+        </section>
       </body>
     </>
   )
