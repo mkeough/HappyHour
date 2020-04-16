@@ -11,16 +11,13 @@ const Search = () => {
     true,
     { enableHighAccuracy: true }
   )
-  const [viewport, setViewport] = useState(
-    {
-      width: 400,
-      height: 400,
-      latitude: latitude,
-      longitude: longitude,
-      zoom: 12,
-    }
-    // userLocation()
-  )
+  const [viewport, setViewport] = useState({
+    width: 300,
+    height: 300,
+    latitude: latitude,
+    longitude: longitude,
+    zoom: 12,
+  })
 
   useEffect(() => {
     setViewport(prev => {
@@ -35,7 +32,6 @@ const Search = () => {
   const [showPopup, setShowPopup] = useState(false)
   const [bar, setBar] = useState({})
   const [markers, setMarkers] = useState([])
-  // const [userLocation, setUserLocation] = useState({})
 
   const loadAllBars = async () => {
     const resp = await axios.get('api/bar')
@@ -51,6 +47,15 @@ const Search = () => {
     setBar(bars)
     setShowPopup(true)
   }
+  // const [searchCity, setSearchCity] = useState('')
+
+  // const userSearch = async () => {
+  //   const resp = await axios.get(
+  //     `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchCity}.json?access_token=pk.eyJ1Ijoia2VvdWdobSIsImEiOiJjazhwNDQ4ZTAwMHdjM21wMWpmcmx6Znl5In0.8teYNnKkLBfla2ZsBUMEFQ`
+  //   )
+  //   console.log(resp.data)
+  //   setSearchCity(resp.data)
+  // }
 
   return (
     <div className="search-page">
@@ -60,59 +65,53 @@ const Search = () => {
           Click the <FontAwesomeIcon icon={faCrosshairs} /> icon below to see
           your current location{' '}
         </h3>
-        {/* <h3>Enter Distance You Would Like to Search</h3>
-      <p>(miles)</p>
-      <input type="search" />
-      <p>
-        <button>
-          <Link to="/resultspage">Search</Link>
-        </button>
-      </p> */}
-        {/* <button onClick={() => setShowPopup(true)}>show popup</button> */}
-        <section className="map-container">
-          <ReactMapGL
-            className="map"
-            {...viewport}
-            onViewportChange={setViewport}
-            mapboxApiAccessToken={
-              'pk.eyJ1Ijoia2VvdWdobSIsImEiOiJjazhwNDQ4ZTAwMHdjM21wMWpmcmx6Znl5In0.8teYNnKkLBfla2ZsBUMEFQ'
-            }
-          >
-            {' '}
-            <GeolocateControl
-              positionOptions={{ enableHighAccuracy: true }}
-              trackUserLocation={true}
-            ></GeolocateControl>
-            {showPopup && (
-              <Popup
-                latitude={bar.latitude}
-                longitude={bar.longitude}
-                closeButton={true}
-                closeOnClick={false}
-                onClose={() => setShowPopup(false)}
-                anchor="top"
-                offsetTop={-5}
-              >
-                <div>
-                  <Link to={`/bar/${bar.id}`}>{bar.name}</Link>
-                </div>
-              </Popup>
-            )}
-            {markers.map(bars => {
-              return (
-                <Marker latitude={bars.latitude} longitude={bars.longitude}>
-                  <div onClick={() => markerClicked(bars)}>🍻</div>
-                </Marker>
-              )
-            })}
-          </ReactMapGL>
-          <h3 className="cant-find-your-bar">
-            Do you own a bar and dont see it on the map?
-          </h3>
-          <button>
-            <Link to="/addpage">Add it here</Link>
-          </button>
+
+        <section className="map-section">
+          <section className="map-container">
+            <ReactMapGL
+              className="map"
+              {...viewport}
+              onViewportChange={setViewport}
+              mapboxApiAccessToken={
+                'pk.eyJ1Ijoia2VvdWdobSIsImEiOiJjazhwNDQ4ZTAwMHdjM21wMWpmcmx6Znl5In0.8teYNnKkLBfla2ZsBUMEFQ'
+              }
+            >
+              {' '}
+              <GeolocateControl
+                positionOptions={{ enableHighAccuracy: true }}
+                trackUserLocation={true}
+              ></GeolocateControl>
+              {showPopup && (
+                <Popup
+                  latitude={bar.latitude}
+                  longitude={bar.longitude}
+                  closeButton={true}
+                  closeOnClick={false}
+                  onClose={() => setShowPopup(false)}
+                  anchor="top"
+                  offsetTop={-5}
+                >
+                  <div>
+                    <Link to={`/bar/${bar.id}`}>{bar.name}</Link>
+                  </div>
+                </Popup>
+              )}
+              {markers.map(bars => {
+                return (
+                  <Marker latitude={bars.latitude} longitude={bars.longitude}>
+                    <div onClick={() => markerClicked(bars)}>🍻</div>
+                  </Marker>
+                )
+              })}
+            </ReactMapGL>
+          </section>
         </section>
+        <h3 className="cant-find-your-bar">
+          Do you own a bar and dont see it on the map?
+        </h3>
+        <button>
+          <Link to="/addpage">Add it here</Link>
+        </button>
       </main>
     </div>
   )

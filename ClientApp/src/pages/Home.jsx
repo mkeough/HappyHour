@@ -6,7 +6,7 @@ export function Home() {
     <>
       <main className="home-page">
         <section className="banner">
-          <h1>Weclome to Happiest Hour</h1>
+          <h1>Welcome to Happiest Hour</h1>
           <h2>Find Your Happy Place</h2>
         </section>
         <button className="home-button">

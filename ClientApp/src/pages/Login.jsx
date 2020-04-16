@@ -41,48 +41,50 @@ const Login = () => {
   }
   return (
     <>
-      <section className="login">
-        <h3>Login</h3>
-        <p>Email</p>
-        <input
-          type="text"
-          value={loginEmail}
-          onChange={e => setLoginEmail(e.target.value)}
-        />
-        <p>Password</p>
-        <input
-          type="text"
-          value={loginPassword}
-          onChange={e => setLoginPassword(e.target.value)}
-        />
-        <p>
-          <button onClick={logUserIntoApi}>Login</button>
-        </p>
-      </section>
-      <section className="sign-up">
-        <h3>Sign Up</h3>
-        <p>Full Name</p>
-        <input
-          type="text"
-          value={fullName}
-          onChange={e => setFullName(e.target.value)}
-        />
-        <p>Email</p>
-        <input
-          type="text"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <p>Password</p>
-        <input
-          type="text"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <p>
-          <button onClick={sendNewUserToApi}>Sign Up</button>
-        </p>
-      </section>
+      <main className="login-page">
+        <section className="login">
+          <h3>Login</h3>
+          <p>Email</p>
+          <input
+            type="text"
+            value={loginEmail}
+            onChange={e => setLoginEmail(e.target.value)}
+          />
+          <p>Password</p>
+          <input
+            type="text"
+            value={loginPassword}
+            onChange={e => setLoginPassword(e.target.value)}
+          />
+          <p>
+            <button onClick={logUserIntoApi}>Login</button>
+          </p>
+        </section>
+        <section className="sign-up">
+          <h3>Sign Up</h3>
+          <p>Full Name</p>
+          <input
+            type="text"
+            value={fullName}
+            onChange={e => setFullName(e.target.value)}
+          />
+          <p>Email</p>
+          <input
+            type="text"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          <p>Password</p>
+          <input
+            type="text"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          <p>
+            <button onClick={sendNewUserToApi}>Sign Up</button>
+          </p>
+        </section>
+      </main>
     </>
   )
 }
