@@ -89,7 +89,8 @@ const Search = () => {
                   closeOnClick={false}
                   onClose={() => setShowPopup(false)}
                   anchor="top"
-                  offsetTop={-5}
+                  offsetTop={20}
+                  offsetLeft={10}
                 >
                   <div>
                     <Link to={`/bar/${bar.id}`}>{bar.name}</Link>

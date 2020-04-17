@@ -167,7 +167,7 @@ button.home-button {
     padding: 2rem;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   main.home-page {
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -175,16 +175,20 @@ button.home-button {
     background-size: cover;
     margin-left: 0;
     h1 {
-      font-size: 48px;
+      font-size: 36px;
     }
     h2 {
-      font-size: 46px;
+      font-size: 30px;
     }
   }
   .login {
     margin-bottom: 4rem;
   }
   .details {
+    .HappyHour {
+      width: 100%;
+      border-radius: 0.5rem;
+    }
     h1 {
       font-size: 48px;
     }
@@ -210,9 +214,6 @@ button.home-button {
     justify-content: center;
     width: 100%;
     height: 200%;
-  }
-  .map {
-    width: 500%;
   }
 }
 @media (min-width: 992px) {
