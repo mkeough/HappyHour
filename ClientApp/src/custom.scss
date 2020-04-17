@@ -59,7 +59,7 @@ button.home-button {
   background-color: #9cc3d5ff;
   text-align: center;
   padding: 2rem;
-  color: white;
+  color: black;
   border-style: solid;
   border-radius: 0.5rem;
   border-color: #0063b2ff;
@@ -103,7 +103,7 @@ button.home-button {
   border-style: solid;
   text-align: center;
   background-color: #9cc3d5ff;
-  color: white;
+  color: black;
   border-radius: 1rem;
   .hh {
     display: none;
@@ -121,13 +121,13 @@ button.home-button {
   }
   .phone-number {
     font-size: 18px;
-    color: white;
+    color: black;
   }
 }
 
 .add-page {
   background-color: #9cc3d5ff;
-  color: white;
+  color: black;
 
   text-align: center;
   border-radius: 1rem;
@@ -140,15 +140,30 @@ button.home-button {
     border-style: solid;
     border-color: #0063b2ff;
     background-color: #9cc3d5ff;
-    color: white;
+    color: black;
     padding: 2rem;
+    .password {
+      padding-top: 1rem;
+    }
+    .login-button {
+      margin-top: 1rem;
+    }
   }
   .sign-up {
+    .password {
+      padding-top: 1rem;
+    }
+    .email {
+      padding-top: 1rem;
+    }
+    .sign-up-button {
+      margin-top: 1rem;
+    }
     border-radius: 1rem;
     border-style: solid;
     border-color: #0063b2ff;
     background-color: #9cc3d5ff;
-    color: white;
+    color: black;
     padding: 2rem;
   }
 }
@@ -200,8 +215,9 @@ button.home-button {
     width: 500%;
   }
 }
-@media (min-width: 1000px) {
-  div.container {
+@media (min-width: 992px) {
+  .container {
+    padding-left: 0;
     margin-left: 2rem;
   }
   main.home-page {
@@ -211,16 +227,23 @@ button.home-button {
     background-size: cover;
     margin-left: 0;
   }
+  .search-page {
+    margin-left: 5rem;
+  }
+  .add-page {
+    margin-left: 5rem;
+  }
 
   .login-page {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
-  .details-page {
-    margin-left: 2rem;
-    padding-left: 5rem;
+  section.login {
+    height: 100%;
   }
+
   .details {
+    margin-left: 5rem;
     .HappyHour {
       display: none;
     }
