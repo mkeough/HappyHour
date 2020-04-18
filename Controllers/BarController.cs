@@ -93,6 +93,8 @@ namespace HappyHour.Controllers
       var resp = await client.GetAsync($"https://api.mapbox.com/geocoding/v5/mapbox.places/{fullAddress}.json?access_token={this._MAPBOX_TOKEN}");
 
       var json = await JsonDocument.ParseAsync(await resp.Content.ReadAsStreamAsync());
+      Console.WriteLine(json);
+      Console.WriteLine(this._MAPBOX_TOKEN);
       var root = json.RootElement;
       var feature = root.GetProperty("features").EnumerateArray().First();
       var center = feature.GetProperty("center").EnumerateArray();
