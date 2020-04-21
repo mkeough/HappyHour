@@ -17,7 +17,9 @@ const Search = () => {
     latitude: latitude,
     longitude: longitude,
     zoom: 12,
+    interactive: true,
   })
+  //PV&4-r_en_3_65g
 
   useEffect(() => {
     setViewport(prev => {
@@ -47,15 +49,16 @@ const Search = () => {
     setBar(bars)
     setShowPopup(true)
   }
-  // const [searchCity, setSearchCity] = useState('')
+  const [searchCity, setSearchCity] = useState('')
+  // const [searchLatitude, setsearchLatitude] = useState({})
+  // const [searchLongitude, setSearchLongitude] = useState({})
 
-  // const userSearch = async () => {
-  //   const resp = await axios.get(
-  //     `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchCity}.json?access_token=pk.eyJ1Ijoia2VvdWdobSIsImEiOiJjazhwNDQ4ZTAwMHdjM21wMWpmcmx6Znl5In0.8teYNnKkLBfla2ZsBUMEFQ`
-  //   )
-  //   console.log(resp.data)
-  //   setSearchCity(resp.data)
-  // }
+  const userSearch = async () => {
+    const resp = await axios.get(`api/search/city/${searchCity}`)
+    console.log(resp.data)
+    const result = resp.data
+    setViewport({ ...viewport, latitude: result.lat, longitude: result.lng })
+  }
 
   return (
     <div className="search-page">
@@ -65,6 +68,14 @@ const Search = () => {
           Click the <FontAwesomeIcon icon={faCrosshairs} /> icon below to see
           your current location{' '}
         </h3>
+
+        <h3>Or Search by City</h3>
+        <input
+          type="text"
+          value={searchCity}
+          onChange={e => setSearchCity(e.target.value)}
+        />
+        <button onClick={userSearch}>Search</button>
 
         <section className="map-section">
           <section className="map-container">
@@ -99,7 +110,11 @@ const Search = () => {
               )}
               {markers.map(bars => {
                 return (
-                  <Marker latitude={bars.latitude} longitude={bars.longitude}>
+                  <Marker
+                    key={bars.id}
+                    latitude={bars.latitude}
+                    longitude={bars.longitude}
+                  >
                     <div onClick={() => markerClicked(bars)}>🍻</div>
                   </Marker>
                 )

@@ -21,7 +21,11 @@ code {
   padding-left: 6px;
 }
 main.home-page {
-  background-image: url(./images/HomePage.jpg);
+  background-image: url(./images/Mobilehomepage.jpg);
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
   height: 100vh;
   width: 92vw;
   display: flex;
@@ -76,7 +80,6 @@ button.home-button {
   }
   .map-container {
     .map {
-      border-radius: 1rem;
       border-style: solid;
       border-color: #0063b2ff;
       margin-top: 2rem;

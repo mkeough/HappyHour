@@ -19,13 +19,13 @@ namespace HappyHour.Controllers
   public class BarController : ControllerBase
   {
     private readonly DatabaseContext _context;
-    private readonly string _MAPBOX_TOKEN;
+    private readonly string MAPBOX_TOKEN;
 
 
     public BarController(DatabaseContext context, IConfiguration config)
     {
       _context = context;
-      this._MAPBOX_TOKEN = config["mapbox-token"];
+      this.MAPBOX_TOKEN = config["MAPBOX_TOKEN"];
 
     }
 
@@ -35,6 +35,7 @@ namespace HappyHour.Controllers
     {
       return await _context.Bars.ToListAsync();
     }
+
 
     // GET: api/Bar/5
     [HttpGet("{id}")]
@@ -90,11 +91,11 @@ namespace HappyHour.Controllers
     {
       var client = new HttpClient();
       var fullAddress = $"{bar.Address}, {bar.City}, {bar.State}, {bar.Zip}";
-      var resp = await client.GetAsync($"https://api.mapbox.com/geocoding/v5/mapbox.places/{fullAddress}.json?access_token={this._MAPBOX_TOKEN}");
+      var resp = await client.GetAsync($"https://api.mapbox.com/geocoding/v5/mapbox.places/{fullAddress}.json?access_token={this.MAPBOX_TOKEN}");
 
       var json = await JsonDocument.ParseAsync(await resp.Content.ReadAsStreamAsync());
       Console.WriteLine(json);
-      Console.WriteLine(this._MAPBOX_TOKEN);
+      Console.WriteLine("MY TOKEN IS" + this.MAPBOX_TOKEN);
       var root = json.RootElement;
       var feature = root.GetProperty("features").EnumerateArray().First();
       var center = feature.GetProperty("center").EnumerateArray();
