@@ -50,8 +50,6 @@ const Search = () => {
     setShowPopup(true)
   }
   const [searchCity, setSearchCity] = useState('')
-  // const [searchLatitude, setsearchLatitude] = useState({})
-  // const [searchLongitude, setSearchLongitude] = useState({})
 
   const userSearch = async () => {
     const resp = await axios.get(`api/search/city/${searchCity}`)

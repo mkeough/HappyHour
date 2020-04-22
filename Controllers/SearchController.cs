@@ -31,7 +31,7 @@ namespace HappyHour.Controllers
     public async Task<ActionResult> SearchCities(string searchCity)
     {
       var client = new HttpClient();
-      var resp = await client.GetAsync($"https://api.mapbox.com/geocoding/v5/mapbox.places/{searchCity}.json?access_token=pk.eyJ1Ijoia2VvdWdobSIsImEiOiJjazhwNDQ4ZTAwMHdjM21wMWpmcmx6Znl5In0.8teYNnKkLBfla2ZsBUMEFQ");
+      var resp = await client.GetAsync($"https://api.mapbox.com/geocoding/v5/mapbox.places/{searchCity}.json?autoComplete=true&fuzzyMatch=true&country=US&access_token=pk.eyJ1Ijoia2VvdWdobSIsImEiOiJjazhwNDQ4ZTAwMHdjM21wMWpmcmx6Znl5In0.8teYNnKkLBfla2ZsBUMEFQ");
 
       var json = await JsonDocument.ParseAsync(await resp.Content.ReadAsStreamAsync());
       var root = json.RootElement;
@@ -39,6 +39,7 @@ namespace HappyHour.Controllers
       var center = feature.GetProperty("center").EnumerateArray();
       var lng = center.First();
       var lat = center.Skip(1).First();
+
 
       return Ok(new { lat = lat, lng = lng });
 

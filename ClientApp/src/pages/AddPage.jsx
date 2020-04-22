@@ -55,7 +55,7 @@ const AddPage = () => {
           <textarea
             name=""
             id=""
-            cols="60"
+            cols="50"
             rows="5"
             placeholder="Put Specials Here"
             name="specials"
