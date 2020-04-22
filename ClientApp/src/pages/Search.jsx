@@ -12,14 +12,11 @@ const Search = () => {
     { enableHighAccuracy: true }
   )
   const [viewport, setViewport] = useState({
-    width: 300,
-    height: 300,
     latitude: latitude,
     longitude: longitude,
     zoom: 12,
     interactive: true,
   })
-  //PV&4-r_en_3_65g
 
   useEffect(() => {
     setViewport(prev => {
@@ -76,57 +73,60 @@ const Search = () => {
         />
         <button onClick={userSearch}>Search</button>
 
-        <section className="map-section">
-          <section className="map-container">
-            <ReactMapGL
-              className="map"
-              {...viewport}
-              onViewportChange={setViewport}
-              mapboxApiAccessToken={
-                'pk.eyJ1Ijoia2VvdWdobSIsImEiOiJjazhwNDQ4ZTAwMHdjM21wMWpmcmx6Znl5In0.8teYNnKkLBfla2ZsBUMEFQ'
-              }
-            >
-              {' '}
-              <GeolocateControl
-                positionOptions={{ enableHighAccuracy: true }}
-                trackUserLocation={true}
-              ></GeolocateControl>
-              {showPopup && (
-                <Popup
-                  latitude={bar.latitude}
-                  longitude={bar.longitude}
-                  closeButton={true}
-                  closeOnClick={false}
-                  onClose={() => setShowPopup(false)}
-                  anchor="top"
-                  offsetTop={20}
-                  offsetLeft={10}
+        <section className="map-container">
+          <ReactMapGL
+            className="map"
+            height="50vh"
+            width="100vw"
+            {...viewport}
+            onViewportChange={setViewport}
+            mapboxApiAccessToken={
+              'pk.eyJ1Ijoia2VvdWdobSIsImEiOiJjazhwNDQ4ZTAwMHdjM21wMWpmcmx6Znl5In0.8teYNnKkLBfla2ZsBUMEFQ'
+            }
+          >
+            {' '}
+            <GeolocateControl
+              positionOptions={{ enableHighAccuracy: true }}
+              trackUserLocation={true}
+            ></GeolocateControl>
+            {showPopup && (
+              <Popup
+                latitude={bar.latitude}
+                longitude={bar.longitude}
+                closeButton={true}
+                closeOnClick={false}
+                onClose={() => setShowPopup(false)}
+                anchor="top"
+                offsetTop={20}
+                offsetLeft={10}
+              >
+                <div>
+                  <Link to={`/bar/${bar.id}`}>{bar.name}</Link>
+                </div>
+              </Popup>
+            )}
+            {markers.map(bars => {
+              return (
+                <Marker
+                  key={bars.id}
+                  latitude={bars.latitude}
+                  longitude={bars.longitude}
                 >
-                  <div>
-                    <Link to={`/bar/${bar.id}`}>{bar.name}</Link>
-                  </div>
-                </Popup>
-              )}
-              {markers.map(bars => {
-                return (
-                  <Marker
-                    key={bars.id}
-                    latitude={bars.latitude}
-                    longitude={bars.longitude}
-                  >
-                    <div onClick={() => markerClicked(bars)}>🍻</div>
-                  </Marker>
-                )
-              })}
-            </ReactMapGL>
-          </section>
+                  <div onClick={() => markerClicked(bars)}>🍻</div>
+                </Marker>
+              )
+            })}
+          </ReactMapGL>
         </section>
-        <h3 className="cant-find-your-bar">
-          Do you own a bar and dont see it on the map?
-        </h3>
-        <button>
-          <Link to="/addpage">Add it here</Link>
-        </button>
+
+        <section>
+          <h3 className="cant-find-your-bar">
+            Do you own a bar and dont see it on the map?
+          </h3>
+          <button>
+            <Link to="/addpage">Add it here</Link>
+          </button>
+        </section>
       </main>
     </div>
   )
