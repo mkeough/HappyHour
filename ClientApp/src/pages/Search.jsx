@@ -69,8 +69,9 @@ const Search = () => {
           your current location{' '}
         </h3>
 
-        <h3>Or Search by City</h3>
+        <h3> Or Search by City</h3>
         <input
+          className="search"
           type="text"
           value={searchCity}
           onChange={e => setSearchCity(e.target.value)}
