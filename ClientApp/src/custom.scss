@@ -83,7 +83,7 @@ button.home-button {
   .map-container {
     display: flex;
     justify-content: center;
-    width: 80vw;
+    width: 78vw;
     height: auto;
   }
 
@@ -181,13 +181,15 @@ button.home-button {
     padding: 2rem;
   }
 }
-@media (min-width: 700px) {
+
+@media (min-width: 600px) {
   main.home-page {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    margin-left: 0;
+    margin-left: -3.5rem;
+
     h1 {
       font-size: 36px;
     }
@@ -222,17 +224,22 @@ button.home-button {
       font-size: 24px;
     }
   }
-  .map-container {
+  .search-page .map-container {
     display: flex;
     justify-content: center;
-    width: 30vw;
+    width: auto;
     height: auto;
+  }
+}
+@media (min-width: 700px) {
+  main.home-page {
+    margin-left: -4rem;
   }
 }
 @media (min-width: 992px) {
   .container {
     padding-left: 0;
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
   main.home-page {
     -webkit-background-size: cover;
@@ -269,10 +276,11 @@ button.home-button {
     }
   }
   .map-container {
-    display: flex;
-    justify-content: center;
-    width: 90vw;
-    height: auto;
+    // display: flex;
+    // justify-content: center;
+    width: 58rem;
+    height: 50rem;
+    padding-right: 8rem;
   }
 }
 @media (min-width: 1200px) {
@@ -281,7 +289,7 @@ button.home-button {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
   .search-page {
     margin-left: 8rem;
@@ -295,11 +303,11 @@ button.home-button {
   .details {
     margin-left: 10rem;
   }
-  .map-container {
+  .search-page .map-container {
     display: flex;
     justify-content: center;
-    width: 90vw;
-    height: auto;
-    padding-right: 9rem;
+    width: 80vw;
+    height: 23rem;
+    padding-right: 10rem;
   }
 }
