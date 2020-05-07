@@ -71,7 +71,9 @@ const Search = () => {
           value={searchCity}
           onChange={e => setSearchCity(e.target.value)}
         />
-        <button onClick={userSearch}>Search</button>
+        <button className="search-button" onClick={userSearch}>
+          Search
+        </button>
 
         <section className="map-container">
           <ReactMapGL
